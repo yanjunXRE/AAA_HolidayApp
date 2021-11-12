@@ -1,0 +1,49 @@
+<ion-app>
+  <ion-menu side="start" contentId="main" menuId="main">
+  <ion-header>
+  <ion-toolbar>
+  <ion-title>{{email}}</ion-title>
+  <ion-title>
+  <ion-note>{{email}}</ion-note>
+  </ion-title>
+  </ion-toolbar>
+  </ion-header>
+  <ion-content>
+  <ion-list>
+  <ion-item lines="none" [routerLink]="['login']" (click)="close()" routerLinkActive="bold" *ngIf="email=='guest'">
+      <ion-icon name="heart-outline" slot="start"></ion-icon>Login
+      </ion-item>
+      <ion-item lines="none" [routerLink]="['register']" (click)="close()" routerLinkActive="bold" *ngIf="email=='guest'">
+        <ion-icon name="heart-outline" slot="start"></ion-icon>Register
+        </ion-item>
+      <ion-item lines="none" [routerLink]="['portal']" (click)="close()" routerLinkActive="bold"  *ngIf="email!='guest'"> 
+        <ion-icon name="heart-outline" slot="start"></ion-icon>Profile
+        </ion-item>
+        <ion-item lines="none" [routerLink]="['order']" (click)="close()" routerLinkActive="bold"  *ngIf="email!='guest'"> 
+          <ion-icon name="heart-outline" slot="start"></ion-icon>Order
+        </ion-item>
+        <ion-item lines="none" [routerLink]="['admin']" (click)="close()" routerLinkActive="bold"  *ngIf="email=='yanjuntan450@gmail.com'"> 
+          <ion-icon name="heart-outline" slot="start"></ion-icon>Admin
+        </ion-item>
+  </ion-list>
+  </ion-content>
+  </ion-menu>
+  <ion-router-outlet id="main"></ion-router-outlet>
+  <ion-tabs>
+    <!-- Tab bar -->
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button tab="Home" [routerLink]="['home']" routerLinkActive="bold">
+        <ion-icon name="home"></ion-icon>
+        <ion-label>Home</ion-label>
+      </ion-tab-button>
+      <ion-tab-button tab="Countries" [routerLink]="['favourites']" routerLinkActive="bold">
+        <ion-icon name="flag" ></ion-icon>
+        <ion-label>Countries</ion-label>
+      </ion-tab-button>
+      <ion-tab-button tab="POI" [routerLink]="['gallery']" routerLinkActive="bold">
+        <ion-icon name="compass" ></ion-icon>
+        <ion-label>POI</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+ </ion-app>

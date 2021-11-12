@@ -1,0 +1,87 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button [routerLink]="['/admin']">
+      <ion-icon name="arrow-back-circle-outline"></ion-icon>
+      </ion-button>
+      </ion-buttons>
+    <ion-title> <ion-buttons slot="start">
+ <ion-button [routerLink]="['/admin']">
+ <ion-icon name="arrow-back-circle-outline"></ion-icon>
+ </ion-button>
+ </ion-buttons>Manage User</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <form [formGroup]="myForm">
+    <ion-item>
+    <ion-label position="floating">Attraction</ion-label>
+    <ion-input type="text" formControlName="attraction"></ion-input>
+    </ion-item>
+    <ion-item>
+    <ion-label position="floating">City</ion-label>
+    <ion-input type="text" formControlName="city"></ion-input>
+    </ion-item>
+    <ion-item>
+    <ion-label position="floating">Description</ion-label>
+    <ion-input type="text" formControlName="description"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">image_url</ion-label>
+      <ion-input type="text" formControlName="image_url"></ion-input>
+      <ion-button (click)="takePhoto()">Take Photo</ion-button>
+      <img src="{{base64Image}}" *ngIf="base64Image!=undefined" />
+      </ion-item>
+      <ion-item>
+      <div class="map-wrapper">
+        <div id="map_center">
+          <img src="assets/icon/location-marker.png" />
+        </div>
+        <ion-button (click)="loadMap('roadmap');">RoadMap</ion-button>
+        <ion-button (click)="loadMap('satellite');">Satellite</ion-button>
+        <ion-button (click)="loadMap('hybrid');">Hybrid</ion-button>
+       
+        <div #map id="map"></div>
+      </div>
+    </ion-item>
+     
+      <ion-item>
+        <ion-label position="floating">latitude</ion-label>
+        <ion-input type="text" formControlName="latitude"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">location</ion-label>
+          <ion-input type="text" formControlName="location"></ion-input>
+          </ion-item>
+          <ion-item>
+          <ion-label position="floating">longitude</ion-label>
+          <ion-input type="text" formControlName="longitude"></ion-input>
+          </ion-item>
+          <ion-item>
+          <ion-label position="floating">price</ion-label>
+          <ion-input type="number" formControlName="price"></ion-input>
+          </ion-item>
+          <ion-item>
+          <ion-label position="floating">special</ion-label>
+          <ion-input type="text" formControlName="special"></ion-input>
+          </ion-item>
+    <ion-row>
+    <ion-col>
+    
+      <ng-container *ngIf="id!='add'; then other; else add">
+</ng-container>
+<ng-template #add>
+  <ion-button (click)="adding()">Add</ion-button>
+</ng-template>
+  
+<ng-template #other>
+    <ion-button (click)="update()">Update</ion-button>
+    <ion-button (click)="delete()">Delete</ion-button>
+</ng-template>
+  
+    </ion-col>
+    </ion-row>
+    </form>
+</ion-content>

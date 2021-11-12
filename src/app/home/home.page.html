@@ -1,0 +1,138 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-buttons slot="end">
+        <ion-icon name="cart" (click)="nav()"></ion-icon>
+        <!-- <ion-button (click)="add()"><ion-icon name="add-circle-outline"></ion-icon></ion-button> -->
+        </ion-buttons>
+  <ion-title>
+    AAA Holiday
+  </ion-title>
+  </ion-toolbar>
+ </ion-header>
+ <ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+  <ion-toolbar>
+  <ion-title size="large">AAA Holiday</ion-title>
+  </ion-toolbar>
+  </ion-header>
+ 
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button [routerLink]="['/contact']">
+  <ion-icon name="mail-outline"></ion-icon>
+  </ion-fab-button>
+  </ion-fab>
+  <!-- <ion-list>
+    <ion-item-sliding *ngFor="let note of notes">
+    <ion-item>
+    {{note.title}}
+    </ion-item>
+    <ion-item-options side="start">
+    <ion-item-option color="primary" (click)="edit(note)"><ion-icon name="create-outline"></ion-icon></ion-item-option>
+    </ion-item-options>
+    <ion-item-options side="end">
+    <ion-item-option color="danger" (click)="delete(note)">Delete</ion-item-option>
+    </ion-item-options>
+    </ion-item-sliding>
+   </ion-list> -->
+   <!-- <ion-list>
+    <ion-item button *ngFor="let user of users" [routerLink]="['/details', user.id]">
+    <ion-label>
+    <h3>{{ user.name | uppercase}}</h3>
+    - {{ user.email }}
+    </ion-label>
+    <ion-icon slot="end" name="caret-forward-outline"></ion-icon>
+    </ion-item>
+    </ion-list> -->
+
+
+    <ion-searchbar (ionChange)="filterList($event)"></ion-searchbar>
+    <ion-slides>
+      <ion-slide  *ngFor="let item of banner">
+        <img src="{{item.imageUrl}}"  (click)="openSys2(item.url)"/>
+      
+      </ion-slide>
+     
+    </ion-slides>
+
+    
+  <ion-grid >
+    <ion-row >
+     
+    <ion-col size="6" *ngFor="let item of attractions">
+     <ion-card [routerLink]="['/attract-detail', item.id]"  >
+      <img src="{{item.image_url}}">
+      <ion-label text-wrap>
+        <h3>{{ item.attraction }}</h3>
+        <p>{{item.price|currency:'SGD'}}</p>
+        </ion-label>
+      </ion-card>
+    </ion-col>
+  
+      </ion-row>
+    </ion-grid>
+
+ 
+
+
+  <!-- <div id="container">
+    
+  <ion-card>
+  <img src="./assets/bishanamk.jpg" />
+  <ion-card-header>
+  <ion-card-subtitle>Central</ion-card-subtitle>
+  <ion-card-title>Bishan-Ang Mo Kio Park</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+  As one of the largest urban parks in central Singapore, BishanAng Mo Kio Park is a great place for families to have a fun day out. Under the PUB’s Active,
+ Beautiful and Clean Waters (ABC) Programme, the old concrete canal has been deconcretised and naturalised into a beautiful 3 km meandering river with lush banks of wildfl
+ owers. Aside from its unique waterways, the park features lush greenery, Pond Gardens an
+ d River Plains, making it a popular choice with nearby residents for recreational activities.
+  </ion-card-content>
+  </ion-card>
+ 
+  <ion-button size="medium" [routerLink]="['/bishan']">Read more</ion-button>
+
+    <ion-card>
+    <img src="./assets/eastcoastpark.jpg" />
+    <ion-card-header>
+    <ion-card-subtitle>East</ion-card-subtitle>
+    <ion-card-title>East Coast Park</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      East Coast Park is one of Singapore's most treasured urban getaways, offering an invigorating and exciting diversity of sporting, dining and recreational activities. With the theme “Recreation for All”, the park has an activity for everyone.
+
+      Families and friends can sit back, relax and enjoy picnics under the swaying coconut palms, Casuarinas and Ketapangs in the park. For those looking for action, there are myriad sporting activities such as beach volleyball, cycling, cable skiing and various water sports as well as an Xtreme SkatePark. The public restrooms in East Coast Park (at Areas B1, B2, C1, C4, D1, D5, F1, F2, G1 and G2) are equipped with shower facilities, so you can choose to wash up in the park if needed.
+      
+      In the evenings, have a barbecue or indulge in sumptuous cuisines at the nearby hawker centre or restaurants while enjoying the cool sea breeze.
+      
+      East Coast Park has a total land size of 185 hectares, and a scenic coastline that stretches over 15 km, and attracts a visitorship of more than seven million a year.
+    </ion-card-content>
+    </ion-card>
+   
+    <ion-button size="medium" [routerLink]="['/eastcoast']">Read more</ion-button>
+    
+      <ion-card>
+      <img src="./assets/gardensbythebay.jpg" />
+      <ion-card-header>
+      <ion-card-subtitle>South</ion-card-subtitle>
+      <ion-card-title>Gardens by the Bay</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        Gardens by the Bay is an independent organisation responsible for developing and managing one of Asia’s foremost garden destinations.
+
+        The Gardens is led by a multidisciplinary team of professionals who have been involved in the greening of Singapore and had worked alongside international and local experts to develop the Gardens. It has an in-house team of skilled landscape designers, horticulturists, arborists, engineers, plant health, garden and turf management experts, as well as plant research and orchid breeding professionals, who leverage on the extensive global network of plant sources cultivated during the development days, to continuously curate and grow the Gardens.
+        
+        Guided by its vision to be a world of gardens for all to own, enjoy and cherish, Gardens by the Bay has earned numerous awards and accolades including the World Building of the Year in 2012, the President’s Design Award (Singapore) in 2013, the Outstanding Achievement Award by the Themed Entertainment Association in 2014, the Largest Glass Greenhouse (Flower Dome) in the Guinness World Records for 2015, and the TripAdvisor Certificate of Excellence in 2016. These achievements are testament to the ongoing excellence of the Gardens and spur the team towards attaining greater success.
+      </ion-card-content>
+      </ion-card>
+     
+      <ion-button size="medium" [routerLink]="['/gardens']">Read more</ion-button>
+      <p>{{msg}}</p>
+      <ion-button (click)="takePhoto()">Take Photo</ion-button>
+      <ion-button (click)="logout()">Logout</ion-button> -->
+      <!-- </div> -->
+     
+ </ion-content>

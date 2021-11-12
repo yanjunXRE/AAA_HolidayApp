@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button [routerLink]="['/gallery']">
+      <ion-icon name="arrow-back-circle-outline"></ion-icon>
+      </ion-button>
+      </ion-buttons>
+    <ion-title> <ion-buttons slot="start">
+ <ion-button [routerLink]="['/gallery']">
+ <ion-icon name="arrow-back-circle-outline"></ion-icon>
+ </ion-button>
+ </ion-buttons>POI Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <img src="{{selected.image_url}}">
+    <ion-card-header>
+    <ion-card-title>{{selected.attraction}}</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+      <p>{{selected.description}}</p>
+  <p>  Price: {{selected.price|currency:'SGD'}} </p>
+<p>Location:{{selected.location}}</p>
+
+  <p>
+    Quantity:<ion-icon name="remove-circle" (click)="decrement()"> </ion-icon>
+    {{quant}}
+  <ion-icon name="add-circle" (click)="increment()"></ion-icon></p>
+  <div class="map-wrapper">
+    <!-- <div id="map_center">
+      <img src="assets/icon/location-marker.png" />
+    </div> -->
+    <div #map id="map"></div>
+  </div>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="3">
+        <b>Lattitude</b>
+      </ion-col>
+      <ion-col>
+        {{latitude}}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="3">
+        <b>Longitude</b>
+      </ion-col>
+      <ion-col>
+        {{longitude}}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="3">
+        <b>Address</b>
+      </ion-col>
+      <ion-col>
+        {{address}}
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+<ion-button (click)="addCart()">Add to Cart</ion-button>
+  </ion-card-content>
+  
+   </ion-card>
+</ion-content>

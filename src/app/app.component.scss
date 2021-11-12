@@ -1,0 +1,18 @@
+@import 'https://fonts.googleapis.com/icon?family=Material+Icons';
+.bold {
+    font-weight: bold;
+    color:black;
+   }
+   :host ::ng-deep ion-toolbar {
+    --background: #0b5517;
+    --color: white;
+   }
+   :host ::ng-deep ion-tab-button {
+    --background: skyblue;
+    --color: white;
+    --color-selected: yellow;
+   }
+   :host ::ng-deep ion-tab-button.tab-selected {
+    --background: lightblue;
+    --color-selected: navy;
+   }

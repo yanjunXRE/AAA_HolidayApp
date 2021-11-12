@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+    <ion-title>admin</ion-title>
+    <ion-buttons slot="end">
+    <ion-button [routerLink]="['/details/add']"><ion-icon name="add-circle-outline"></ion-icon></ion-button> 
+  </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-slides>
+    <ion-slide  *ngFor="let item of banner">
+      <img src="{{item.imageUrl}}"  (click)="openSys2(item.id,item.imageUrl,item.url,item.title)"/>
+    
+    </ion-slide>
+    <ion-slide >
+      <img src="data:image/png;base64,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"  (click)="openSys2()"/>
+    
+    </ion-slide>
+  </ion-slides>
+  <ion-list>
+    
+  <ion-item-sliding *ngFor="let item of att" >
+  <ion-item button >
+  <ion-avatar slot="start">
+  <img src="{{item.image_url}}">
+  </ion-avatar>
+  <ion-label text-wrap>
+  <h3>{{ item.attraction }}</h3>
+  </ion-label>
+ 
+   
+
+  </ion-item>
+  <ion-item-options side="start">
+    <ion-item-option color="primary" [routerLink]="['/details', item.id]">Edit</ion-item-option>
+    </ion-item-options>
+  </ion-item-sliding>
+
+  </ion-list>
+</ion-content>

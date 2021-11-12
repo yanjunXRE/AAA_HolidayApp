@@ -1,0 +1,68 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button [routerLink]="['/home']">
+      <ion-icon name="arrow-back-circle-outline"></ion-icon>
+      </ion-button>
+      </ion-buttons>
+  <ion-title>Contact Us</ion-title>
+  </ion-toolbar>
+ 
+      
+  
+    
+ </ion-header>
+ <ion-content [fullscreen]="true">
+  <form [formGroup]="myForm">
+  <ion-item>
+  <ion-label position="floating">Consumer Type <ion-text color="danger">*</ion-text>
+  </ion-label>
+  <ion-select formControlName="consumertype">
+  <ion-select-option>Business</ion-select-option>
+  <ion-select-option>Personal</ion-select-option>
+  </ion-select>
+  </ion-item>
+  <ion-item>
+  <ion-label position="floating">Name <ion-text color="danger">*</ion-text>
+  </ion-label>
+  <ion-input type="text" formControlName="name"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Purpose</ion-label>
+    <ion-select>
+    <ion-select-option>Feedback</ion-select-option>
+    <ion-select-option>Enquiry</ion-select-option>
+    <ion-select-option>Fault Reporting</ion-select-option>
+    </ion-select>
+    </ion-item>
+    <ion-item>
+    <ion-label position="floating">Subject</ion-label>
+    <ion-input type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Email Addess <ion-text color="danger">*</ion-text>
+      </ion-label>
+      <ion-input type="email" formControlName="email"></ion-input>
+      </ion-item>
+      <ion-item>
+      <ion-label position="floating">Mobile No.</ion-label>
+      <ion-input type="text" formControlName="mobile"></ion-input>
+      </ion-item>
+      <ion-item>
+      <ion-label position="floating">Address</ion-label>
+      <ion-input type="text" formControlName="address"></ion-input>
+      </ion-item>
+      <ion-item>
+      <ion-label position="floating">Feedback <ion-text color="danger">*</ion-text>
+      </ion-label>
+      <ion-textarea formControlName="feedback"></ion-textarea>
+      </ion-item>
+      <ion-row>
+      <ion-col>
+      <ion-button (click)="summary()">Submit</ion-button>
+      </ion-col>
+     </ion-row>
+      </form>
+     </ion-content>
+   
+    

@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button [routerLink]="['/favourites']">
+      <ion-icon name="arrow-back-circle-outline"></ion-icon>
+      </ion-button>
+      </ion-buttons>
+  <ion-title>{{selected.name}}</ion-title>
+  </ion-toolbar>
+ </ion-header>
+ <ion-content>
+  <ion-card>
+  <img src="{{selected.flag}}">
+  <ion-card-header>
+  <ion-card-title>{{selected.alpha2Code}}, {{selected.region}}</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+  Population: {{selected.population}} people
+  
+  </ion-card-content>
+ </ion-card>
+ <ion-grid >
+  <ion-row >
+   
+  <ion-col size="12" *ngFor="let poi of countryPOI.results" [routerLink]="['/poi-detail-country', poi.id,name,poi.coordinates.latitude,poi.coordinates.longitude]">
+   <ion-card>
+     <div *ngIf="poi.images[0]!=undefined">
+      <img src="{{poi.images[0].sizes.original.url}}">
+     </div>
+    
+    <ion-label text-wrap>
+      <h3>{{ poi.name }}</h3>
+      <p>{{poi.score}}</p>
+      </ion-label>
+    </ion-card>
+  </ion-col>
+
+    </ion-row>
+  </ion-grid>
+ </ion-content>
